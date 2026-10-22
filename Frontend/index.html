@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTrack | Application Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>JobTrack<span>.</span></h2>
+        <p class="nav-label">WORKSPACE</p>
+        <a class="nav-link active" href="#dashboard">Dashboard</a>
+        <a class="nav-link" href="#applications">Applications</a>
+        <p class="sidebar-note">Track your journey.<br>Land your next role.</p>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">PLACEMENT WORKSPACE</p>
+                <h1>Job Application Dashboard</h1>
+                <p class="subtitle">Keep every opportunity organised.</p>
+            </div>
+            <button id="addButton" class="primary-button">+ Add Application</button>
+        </header>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <p>Total Applications</p>
+                <h2 id="totalCount">0</h2>
+            </article>
+            <article class="stat-card">
+                <p>Applied</p>
+                <h2 id="appliedCount">0</h2>
+            </article>
+            <article class="stat-card">
+                <p>Interviews</p>
+                <h2 id="interviewCount">0</h2>
+            </article>
+            <article class="stat-card">
+                <p>Offers</p>
+                <h2 id="offerCount">0</h2>
+            </article>
+        </section>
+
+        <section class="panel" id="applications">
+            <div class="panel-heading">
+                <div>
+                    <h2>Your Applications</h2>
+                    <p class="subtitle">Manage your job search in one place.</p>
+                </div>
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="All">All statuses</option>
+                    <option value="Applied">Applied</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Offer">Offer</option>
+                </select>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Role</th>
+                            <th>Applied Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicationsBody">
+                        <tr><td colspan="5">Loading applications...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p id="feedback" role="status"></p>
+        </section>
+    </main>
+
+    <dialog id="applicationDialog">
+        <form id="applicationForm">
+            <h2 id="formTitle">Add Application</h2>
+
+            <label for="companyName">Company name</label>
+            <input id="companyName" name="company_name" required maxlength="150">
+
+            <label for="jobRole">Job role</label>
+            <input id="jobRole" name="job_role" required maxlength="150">
+
+            <label for="appliedDate">Applied date</label>
+            <input id="appliedDate" name="applied_date" type="date" required>
+
+            <label for="applicationStatus">Status</label>
+            <select id="applicationStatus" name="status">
+                <option>Applied</option>
+                <option>Interview</option>
+                <option>Rejected</option>
+                <option>Offer</option>
+            </select>
+
+            <div class="form-actions">
+                <button type="button" id="cancelButton" class="secondary-button">Cancel</button>
+                <button type="submit" class="primary-button">Save Application</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
