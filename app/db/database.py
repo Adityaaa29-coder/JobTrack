@@ -1,4 +1,4 @@
-
+import ssl
 import os
 
 from dotenv import load_dotenv
@@ -20,8 +20,11 @@ database_url = URL.create(
     database=os.getenv("MYSQL_DATABASE", "jobtrack_db"),
 )
 
+ssl_context = ssl.create_default_context(cafile="ca.pem")
+
 engine = create_engine(
     database_url,
+    connect_args={"ssl": ssl_context},
     pool_pre_ping=True,
 )
 
