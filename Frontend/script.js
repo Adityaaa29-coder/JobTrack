@@ -1,5 +1,5 @@
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://jobtrack-api-9elj.onrender.com";
 
 const body = document.getElementById("applicationsBody");
 const feedback = document.getElementById("feedback");
