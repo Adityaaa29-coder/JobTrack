@@ -20,7 +20,9 @@ database_url = URL.create(
     database=os.getenv("MYSQL_DATABASE", "jobtrack_db"),
 )
 
-ssl_context = ssl.create_default_context(cafile="ca.pem")
+ssl_context = ssl.create_default_context(
+    cafile="/etc/secrets/ca.pem"
+)
 
 engine = create_engine(
     database_url,
